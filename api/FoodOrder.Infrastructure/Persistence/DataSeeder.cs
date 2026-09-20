@@ -124,6 +124,7 @@ public static class DataSeeder
                     Id = Guid.NewGuid(),
                     OrderId = order.Id,
                     MenuItemId = randomItem.Id,
+                    Name = randomItem.Name,
                     Quantity = qty,
                     Price = randomItem.Price
                 };
