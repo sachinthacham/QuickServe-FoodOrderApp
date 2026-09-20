@@ -61,7 +61,7 @@ export default function Home() {
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900 overflow-hidden">
       <Header />
 
-      <main className="container mx-auto px-6 py-20 relative z-10">
+      <main id="restaurants" className="container mx-auto px-6 py-20 relative z-10">
         
         <div className="flex flex-col md:flex-row justify-between items-end mb-8 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
           <div>

@@ -30,14 +30,14 @@ export default function Header() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 pt-4 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-            <Link
-              to="/menu"
+            <a
+              href="#restaurants"
               className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold text-white bg-red-500 rounded-full overflow-hidden transition-transform hover:scale-105 hover:shadow-[0_0_40px_rgba(239,68,68,0.4)]"
             >
               <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
               <span>Explore Restaurants</span>
               <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-            </Link>
+            </a>
             <Link
               to="/signin"
               className="inline-flex items-center justify-center px-8 py-4 font-semibold text-slate-900 dark:text-white bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"

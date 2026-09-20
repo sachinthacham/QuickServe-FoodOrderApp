@@ -9,8 +9,43 @@ namespace FoodOrder.Infrastructure.Persistence;
 
 public static class DataSeeder
 {
+    // Fixed logins so each role can be signed into without looking up generated data.
+    private static void SeedDemoAccounts(FoodOrderDbContext context)
+    {
+        var demoAccounts = new[]
+        {
+            new User { FirstName = "Demo", LastName = "Admin", Email = "admin@foodie.com", Password = "password123", Role = UserRole.Admin },
+            new User { FirstName = "Demo", LastName = "Seller", Email = "seller@foodie.com", Password = "password123", Role = UserRole.Seller },
+            new User { FirstName = "Demo", LastName = "Buyer", Email = "buyer@foodie.com", Password = "password123", Role = UserRole.Buyer },
+            new User { FirstName = "Demo", LastName = "Delivery", Email = "delivery@foodie.com", Password = "password123", Role = UserRole.DeliveryBoy },
+        };
+
+        var missing = demoAccounts
+            .Where(a => !context.Users.Any(u => u.Email == a.Email))
+            .ToList();
+
+        if (missing.Count > 0)
+        {
+            context.Users.AddRange(missing);
+            context.SaveChanges();
+        }
+
+        var demoSeller = context.Users.First(u => u.Email == "seller@foodie.com");
+        if (!context.Restaurants.Any(r => r.SellerId == demoSeller.Id))
+        {
+            var toAssign = context.Restaurants.OrderBy(r => r.Name).Take(3).ToList();
+            foreach (var restaurant in toAssign)
+            {
+                restaurant.SellerId = demoSeller.Id;
+            }
+            context.SaveChanges();
+        }
+    }
+
     public static void SeedData(FoodOrderDbContext context)
     {
+        SeedDemoAccounts(context);
+
         if (context.Users.Count() >= 30)
         {
             return; // DB already has 30+ users

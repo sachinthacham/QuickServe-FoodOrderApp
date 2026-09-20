@@ -31,9 +31,16 @@ export default function Navbar() {
       ],
       Seller: [
         { name: "Dashboard", href: "/seller/dashboard" },
+        { name: "Restaurants", href: "/seller/restaurants" },
+        { name: "Orders", href: "/seller/orders" },
+      ],
+      DeliveryBoy: [
+        { name: "Deliveries", href: "/delivery/orders" },
       ],
       Admin: [
         { name: "Dashboard", href: "/admin/dashboard" },
+        { name: "Users", href: "/admin/users" },
+        { name: "Orders", href: "/admin/orders" },
       ],
     };
 
