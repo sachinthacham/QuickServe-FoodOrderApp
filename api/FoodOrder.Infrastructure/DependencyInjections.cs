@@ -22,7 +22,11 @@ public static class DependencyInjections
         services.Configure<JwtSettings>(configuration.GetSection(JwtSettings.SectionName));
         // 2. Add Persistence (Database)
         services.AddDbContext<FoodOrderDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(
+                    configuration.GetConnectionString("DefaultConnection"),
+                    sql => sql
+                        .EnableRetryOnFailure(maxRetryCount: 8, maxRetryDelay: TimeSpan.FromSeconds(30), errorNumbersToAdd: null)
+                        .CommandTimeout(120)));
 
          // 3. Add Repositories
         services.AddScoped<IUserRepository, UserRepository>();
