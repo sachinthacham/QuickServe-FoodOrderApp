@@ -5,5 +5,8 @@ public record UserResult(
     string FirstName,
     string LastName,
     string Email,
-    string Role);
+    string Role)
+{
+    public string AvatarUrl { get; init; } = string.Empty;
+}
 

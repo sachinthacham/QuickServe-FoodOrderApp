@@ -5,6 +5,7 @@ export interface Restaurant {
   name: string;
   description: string;
   address: string;
+  imageUrl: string;
   menuItems: MenuItem[];
 }
 
@@ -14,6 +15,7 @@ export interface MenuItem {
   name: string;
   description: string;
   price: number;
+  imageUrl: string;
 }
 
 export interface CreateRestaurantRequest {

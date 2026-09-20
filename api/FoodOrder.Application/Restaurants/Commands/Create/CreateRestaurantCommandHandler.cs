@@ -3,6 +3,7 @@ using MediatR;
 using FoodOrder.Application.common.Interfaces.Persistence;
 using FoodOrder.Application.Restaurants.Common;
 using FoodOrder.Domain.Entities;
+using FoodOrder.Domain.Common;
 
 namespace FoodOrder.Application.Restaurants.Commands.Create
 {
@@ -22,6 +23,7 @@ namespace FoodOrder.Application.Restaurants.Commands.Create
                 Name = request.Name,
                 Description = request.Description,
                 Address = request.Address,
+                ImageUrl = StockImages.ForRestaurant(request.Name),
                 SellerId = request.SellerId
             };
 
@@ -37,7 +39,7 @@ namespace FoodOrder.Application.Restaurants.Commands.Create
                     m.RestaurantId,
                     m.Name,
                     m.Description,
-                    m.Price)).ToList());
+                    m.Price) { ImageUrl = m.ImageUrl }).ToList()) { ImageUrl = restaurant.ImageUrl };
         }
     }
 }

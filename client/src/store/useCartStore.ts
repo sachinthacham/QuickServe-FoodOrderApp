@@ -48,7 +48,7 @@ const mapBackendCartToLocal = (backendCart: Cart): CartItem[] => {
     _id: item.menuItemId, // For compatibility with existing code
     name: item.menuItemName,
     price: item.price,
-    image: "", // Backend doesn't store image, will need to fetch or use placeholder
+    image: item.imageUrl,
     quantity: item.quantity,
     restaurantId: backendCart.restaurantId,
   }));

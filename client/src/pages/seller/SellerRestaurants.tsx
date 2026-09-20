@@ -208,10 +208,13 @@ function SellerRestaurantsContent() {
               key={restaurant.id}
               className="bg-white rounded-lg shadow overflow-hidden"
             >
-              <div className="h-32 bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center">
-                <span className="text-white text-4xl font-bold">
-                  {restaurant.name.charAt(0)}
-                </span>
+              <div className="h-32 overflow-hidden bg-slate-100">
+                <img
+                  src={restaurant.imageUrl}
+                  alt={restaurant.name}
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="p-4">
                 <h3 className="text-xl font-bold mb-2">{restaurant.name}</h3>

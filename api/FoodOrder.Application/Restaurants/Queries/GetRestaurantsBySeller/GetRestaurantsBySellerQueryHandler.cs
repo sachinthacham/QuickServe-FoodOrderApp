@@ -29,7 +29,7 @@ public class GetRestaurantsBySellerQueryHandler : IRequestHandler<GetRestaurants
                 m.RestaurantId,
                 m.Name,
                 m.Description,
-                m.Price)).ToList())).ToList();
+                m.Price) { ImageUrl = m.ImageUrl }).ToList()) { ImageUrl = r.ImageUrl }).ToList();
     }
 }
 

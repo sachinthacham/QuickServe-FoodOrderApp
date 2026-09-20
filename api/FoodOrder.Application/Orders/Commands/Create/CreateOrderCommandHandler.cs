@@ -57,6 +57,7 @@ namespace FoodOrder.Application.Orders.Commands.Create
                         OrderId = order.Id,
                         MenuItemId = menuItem.Id,
                         Name = menuItem.Name,
+                        ImageUrl = menuItem.ImageUrl,
                         Price = menuItem.Price,
                         Quantity = itemCommand.Quantity
                     });
@@ -86,7 +87,7 @@ namespace FoodOrder.Application.Orders.Commands.Create
                     i.MenuItemId,
                     i.Name,
                     i.Price,
-                    i.Quantity)).ToList());
+                    i.Quantity) { ImageUrl = i.ImageUrl }).ToList());
         }
     }
 }

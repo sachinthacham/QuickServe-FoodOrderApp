@@ -5,5 +5,8 @@ public record MenuItemResult(
     Guid RestaurantId,
     string Name,
     string Description,
-    decimal Price);
+    decimal Price)
+{
+    public string ImageUrl { get; init; } = string.Empty;
+}
 

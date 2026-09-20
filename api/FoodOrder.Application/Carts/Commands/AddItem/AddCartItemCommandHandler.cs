@@ -112,6 +112,7 @@ public class AddCartItemCommandHandler : IRequestHandler<AddCartItemCommand, Err
                     CartId = cart.Id,
                     MenuItemId = menuItem.Id,
                     MenuItemName = menuItem.Name,
+                    ImageUrl = menuItem.ImageUrl,
                     Price = menuItem.Price,
                     Quantity = request.Quantity
                 };
@@ -149,7 +150,7 @@ public class AddCartItemCommandHandler : IRequestHandler<AddCartItemCommand, Err
                     i.MenuItemId,
                     i.MenuItemName,
                     i.Price,
-                    i.Quantity)).ToList());
+                    i.Quantity) { ImageUrl = i.ImageUrl }).ToList());
 
         }
         catch (Exception ex)

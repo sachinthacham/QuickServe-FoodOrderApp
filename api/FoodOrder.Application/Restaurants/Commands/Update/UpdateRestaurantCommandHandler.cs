@@ -39,7 +39,7 @@ public class UpdateRestaurantCommandHandler : IRequestHandler<UpdateRestaurantCo
                 m.RestaurantId,
                 m.Name,
                 m.Description,
-                m.Price)).ToList());
+                m.Price) { ImageUrl = m.ImageUrl }).ToList()) { ImageUrl = restaurant.ImageUrl };
     }
 }
 

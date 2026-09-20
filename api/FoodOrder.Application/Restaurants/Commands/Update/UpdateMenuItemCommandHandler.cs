@@ -39,7 +39,7 @@ public class UpdateMenuItemCommandHandler : IRequestHandler<UpdateMenuItemComman
             menuItem.RestaurantId,
             menuItem.Name,
             menuItem.Description,
-            menuItem.Price);
+            menuItem.Price) { ImageUrl = menuItem.ImageUrl };
     }
 }
 

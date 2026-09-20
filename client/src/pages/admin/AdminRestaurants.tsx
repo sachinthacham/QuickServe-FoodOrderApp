@@ -75,9 +75,17 @@ function AdminRestaurantsContent() {
                     className="hover:bg-slate-50 dark:hover:bg-slate-800/20 transition-colors"
                   >
                     <td className="py-4 px-6">
-                      <span className="font-semibold text-slate-900 dark:text-white">
-                        {restaurant.name}
-                      </span>
+                      <div className="flex items-center gap-3">
+                        <img
+                          src={restaurant.imageUrl}
+                          alt={restaurant.name}
+                          loading="lazy"
+                          className="w-12 h-12 rounded-xl object-cover border border-slate-200 dark:border-slate-700"
+                        />
+                        <span className="font-semibold text-slate-900 dark:text-white">
+                          {restaurant.name}
+                        </span>
+                      </div>
                     </td>
                     <td className="py-4 px-6 text-slate-500 dark:text-slate-400 text-sm">
                       {restaurant.address}

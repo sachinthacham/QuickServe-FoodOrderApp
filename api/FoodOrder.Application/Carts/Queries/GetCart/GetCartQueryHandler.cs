@@ -43,7 +43,7 @@ public class GetCartQueryHandler : IRequestHandler<GetCartQuery, ErrorOr<CartRes
                 i.MenuItemId,
                 i.MenuItemName,
                 i.Price,
-                i.Quantity)).ToList());
+                i.Quantity) { ImageUrl = i.ImageUrl }).ToList());
     }
 }
 

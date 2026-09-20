@@ -35,7 +35,7 @@ public class GetMenuItemsQueryHandler : IRequestHandler<GetMenuItemsQuery, Error
             m.RestaurantId,
             m.Name,
             m.Description,
-            m.Price)).ToList();
+            m.Price) { ImageUrl = m.ImageUrl }).ToList();
     }
 }
 

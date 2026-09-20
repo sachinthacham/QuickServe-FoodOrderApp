@@ -31,7 +31,7 @@ public class GetOrdersByUserQueryHandler : IRequestHandler<GetOrdersByUserQuery,
                 i.MenuItemId,
                 i.Name,
                 i.Price,
-                i.Quantity)).ToList())).ToList();
+                i.Quantity) { ImageUrl = i.ImageUrl }).ToList())).ToList();
     }
 }
 

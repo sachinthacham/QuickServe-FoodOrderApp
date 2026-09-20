@@ -43,7 +43,7 @@ public class RemoveCartItemCommandHandler : IRequestHandler<RemoveCartItemComman
                 i.MenuItemId,
                 i.MenuItemName,
                 i.Price,
-                i.Quantity)).ToList());
+                i.Quantity) { ImageUrl = i.ImageUrl }).ToList());
     }
 }
 

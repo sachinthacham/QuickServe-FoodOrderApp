@@ -136,9 +136,12 @@ export default function Home() {
                 {/* Image / Cover placeholder */}
                 <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-700 dark:to-slate-800">
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 z-10"></div>
-                  <div className="absolute inset-0 flex items-center justify-center group-hover:scale-110 transition-transform duration-700">
-                     <span className="text-8xl opacity-10 filter blur-[2px]">{restaurant.name.charAt(0)}</span>
-                  </div>
+                  <img
+                    src={restaurant.imageUrl}
+                    alt={restaurant.name}
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
                   
                   {/* Favorite toggle */}
                   {isAuthenticated && (

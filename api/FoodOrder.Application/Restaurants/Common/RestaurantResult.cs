@@ -5,5 +5,8 @@ public record RestaurantResult(
     string Name,
     string Description,
     string Address,
-    List<MenuItemResult> MenuItems);
+    List<MenuItemResult> MenuItems)
+{
+    public string ImageUrl { get; init; } = string.Empty;
+}
 

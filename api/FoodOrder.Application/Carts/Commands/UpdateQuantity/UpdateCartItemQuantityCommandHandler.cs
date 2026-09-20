@@ -48,7 +48,7 @@ public class UpdateCartItemQuantityCommandHandler : IRequestHandler<UpdateCartIt
                 i.MenuItemId,
                 i.MenuItemName,
                 i.Price,
-                i.Quantity)).ToList());
+                i.Quantity) { ImageUrl = i.ImageUrl }).ToList());
     }
 }
 

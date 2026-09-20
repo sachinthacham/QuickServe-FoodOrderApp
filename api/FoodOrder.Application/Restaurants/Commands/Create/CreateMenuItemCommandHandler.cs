@@ -4,6 +4,7 @@ using FoodOrder.Application.common.Interfaces.Persistence;
 using FoodOrder.Application.Restaurants.Common;
 using FoodOrder.Domain.Common.Errors;
 using FoodOrder.Domain.Entities;
+using FoodOrder.Domain.Common;
 
 namespace FoodOrder.Application.Restaurants.Commands.Create;
 
@@ -40,6 +41,7 @@ public class CreateMenuItemCommandHandler : IRequestHandler<CreateMenuItemComman
             RestaurantId = request.RestaurantId,
             Name = request.Name,
             Description = request.Description,
+            ImageUrl = StockImages.ForFood(request.Name),
             Price = request.Price
         };
 
@@ -50,7 +52,7 @@ public class CreateMenuItemCommandHandler : IRequestHandler<CreateMenuItemComman
             menuItem.RestaurantId,
             menuItem.Name,
             menuItem.Description,
-            menuItem.Price);
+            menuItem.Price) { ImageUrl = menuItem.ImageUrl };
     }
 }
 

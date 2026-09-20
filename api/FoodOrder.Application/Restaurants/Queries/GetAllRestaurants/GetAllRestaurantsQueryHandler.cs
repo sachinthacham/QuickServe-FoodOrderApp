@@ -28,7 +28,7 @@ public class GetAllRestaurantsQueryHandler : IRequestHandler<GetAllRestaurantsQu
                 m.RestaurantId,
                 m.Name,
                 m.Description,
-                m.Price)).ToList())).ToList();
+                m.Price) { ImageUrl = m.ImageUrl }).ToList()) { ImageUrl = r.ImageUrl }).ToList();
     }
 }
 

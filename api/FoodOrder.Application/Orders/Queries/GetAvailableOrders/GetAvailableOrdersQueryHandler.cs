@@ -35,7 +35,7 @@ public class GetAvailableOrdersQueryHandler : IRequestHandler<GetAvailableOrders
                 i.MenuItemId,
                 i.Name,
                 i.Price,
-                i.Quantity)).ToList())).ToList();
+                i.Quantity) { ImageUrl = i.ImageUrl }).ToList())).ToList();
     }
 }
 

@@ -58,7 +58,7 @@ public class UpdateOrderStatusCommandHandler : IRequestHandler<UpdateOrderStatus
                 i.MenuItemId,
                 i.Name,
                 i.Price,
-                i.Quantity)).ToList());
+                i.Quantity) { ImageUrl = i.ImageUrl }).ToList());
     }
 
     private Error? ValidateAndApplyTransition(Order order, OrderStatus newStatus, string userRole, Guid? userId)

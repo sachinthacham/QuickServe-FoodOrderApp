@@ -89,9 +89,12 @@ function FavoritesContent() {
                 <Link to={`/restaurant/${restaurant.id}`} className="block">
                   <div className="relative h-48 w-full overflow-hidden bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-700 dark:to-slate-800">
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 z-10"></div>
-                    <div className="absolute inset-0 flex items-center justify-center group-hover:scale-110 transition-transform duration-700">
-                      <span className="text-7xl opacity-10 filter blur-[2px]">{restaurant.name.charAt(0)}</span>
-                    </div>
+                    <img
+                      src={restaurant.imageUrl}
+                      alt={restaurant.name}
+                      loading="lazy"
+                      className="absolute inset-0 h-full w-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
                     <div className="absolute bottom-4 left-4 z-20 flex items-center gap-1 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-bold shadow-sm">
                       <Star className="w-4 h-4 text-yellow-500 fill-current" />
                       <span className="text-slate-800 dark:text-slate-200">4.8</span>

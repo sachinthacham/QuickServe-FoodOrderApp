@@ -227,7 +227,13 @@ function SellerMenuItemsContent() {
       ) : (
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {menuItems.map((item) => (
-            <div key={item.id} className="bg-white rounded-lg shadow p-4">
+            <div key={item.id} className="bg-white rounded-lg shadow overflow-hidden p-4">
+              <img
+                src={item.imageUrl}
+                alt={item.name}
+                loading="lazy"
+                className="w-full h-36 object-cover rounded-lg mb-3"
+              />
               <h3 className="text-xl font-bold mb-2">{item.name}</h3>
               <p className="text-sm text-gray-600 mb-2">{item.description}</p>
               <p className="text-lg font-bold text-red-500 mb-4">

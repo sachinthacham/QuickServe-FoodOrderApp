@@ -13,5 +13,8 @@ public record CartItemResult(
     Guid MenuItemId,
     string MenuItemName,
     decimal Price,
-    int Quantity);
+    int Quantity)
+{
+    public string ImageUrl { get; init; } = string.Empty;
+}
 

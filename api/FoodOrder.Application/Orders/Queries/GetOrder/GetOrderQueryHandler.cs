@@ -43,7 +43,7 @@ public class GetOrderQueryHandler : IRequestHandler<GetOrderQuery, ErrorOr<Order
                 i.MenuItemId,
                 i.Name,
                 i.Price,
-                i.Quantity)).ToList());
+                i.Quantity) { ImageUrl = i.ImageUrl }).ToList());
     }
 }
 

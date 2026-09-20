@@ -108,11 +108,10 @@ export default function RestaurantDetailPage() {
         {/* Hero Section */}
         <div className="relative h-[300px] sm:h-[400px] lg:h-[500px] w-full overflow-hidden">
           <div className="absolute inset-0">
-            <img 
-              src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format&fit=crop" 
-              alt={restaurant.name} 
-              className="w-full h-full object-cover animate-pulse" 
-              style={{ animationDuration: '4s' }}
+            <img
+              src={restaurant.imageUrl}
+              alt={restaurant.name}
+              className="w-full h-full object-cover"
             />
             {/* Dark gradient overlay for text readability */}
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-transparent"></div>
@@ -245,8 +244,13 @@ export default function RestaurantDetailPage() {
                         style={{ animationDelay: `${0.3 + (idx * 0.05)}s` }}
                       >
                         <div className="flex gap-4 mb-4">
-                          <div className="w-24 h-24 rounded-xl overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-700 flex items-center justify-center border border-slate-100 dark:border-slate-700 shrink-0">
-                             <span className="text-4xl text-slate-300 dark:text-slate-600 font-bold">{item.name.charAt(0)}</span>
+                          <div className="w-24 h-24 rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shrink-0">
+                            <img
+                              src={item.imageUrl}
+                              alt={item.name}
+                              loading="lazy"
+                              className="w-full h-full object-cover"
+                            />
                           </div>
                           <div>
                             <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1 group-hover:text-red-500 transition-colors">
@@ -276,7 +280,7 @@ export default function RestaurantDetailPage() {
                                       _id: item.id,
                                       name: item.name,
                                       price: item.price,
-                                      image: "",
+                                      image: item.imageUrl,
                                     },
                                     restaurant.id,
                                     token

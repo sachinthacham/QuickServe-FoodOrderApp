@@ -31,7 +31,7 @@ public class GetAllOrdersQueryHandler : IRequestHandler<GetAllOrdersQuery, Error
                 i.MenuItemId,
                 i.Name,
                 i.Price,
-                i.Quantity)).ToList())).ToList();
+                i.Quantity) { ImageUrl = i.ImageUrl }).ToList())).ToList();
     }
 }
 

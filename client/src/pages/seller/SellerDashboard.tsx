@@ -42,11 +42,9 @@ function SellerDashboardContent() {
     fetchData();
   }, [token]);
 
-  const pendingOrders = orders.filter(
-    (o) => o.status === "Pending" || o.status === "Paid"
-  );
+  const pendingOrders = orders.filter((o) => o.status !== "DELIVERED");
   const totalRevenue = orders
-    .filter((o) => o.status === "Delivered")
+    .filter((o) => o.status === "DELIVERED")
     .reduce((sum, o) => sum + o.totalAmount, 0);
 
   if (loading) {
@@ -206,16 +204,16 @@ function SellerDashboardContent() {
                           <td className="py-4 px-6 text-center">
                             <span
                               className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
-                                order.status === "Delivered"
+                                order.status === "DELIVERED"
                                   ? "bg-green-100 text-green-700 dark:bg-green-500/10 dark:text-green-400 border border-green-200 dark:border-green-500/20"
-                                  : order.status === "Pending"
+                                  : order.status === "PLACED"
                                   ? "bg-yellow-100 text-yellow-700 dark:bg-yellow-500/10 dark:text-yellow-400 border border-yellow-200 dark:border-yellow-500/20"
                                   : "bg-blue-100 text-blue-700 dark:bg-blue-500/10 dark:text-blue-400 border border-blue-200 dark:border-blue-500/20"
                               }`}
                             >
-                              {order.status === "Delivered" && <CheckCircle className="w-3 h-3" />}
-                              {order.status === "Pending" && <Clock className="w-3 h-3" />}
-                              {(order.status !== "Delivered" && order.status !== "Pending") && <Package className="w-3 h-3" />}
+                              {order.status === "DELIVERED" && <CheckCircle className="w-3 h-3" />}
+                              {order.status === "PLACED" && <Clock className="w-3 h-3" />}
+                              {(order.status !== "DELIVERED" && order.status !== "PLACED") && <Package className="w-3 h-3" />}
                               {order.status}
                             </span>
                           </td>

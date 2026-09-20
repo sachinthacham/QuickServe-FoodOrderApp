@@ -10,4 +10,5 @@ public class User
     public string Email { get; set; } = null!;
     public string Password { get; set; } = null!;
     public string Role { get; set; } = UserRole.Buyer; // Default role is Buyer
+    public string AvatarUrl { get; set; } = null!;
 }

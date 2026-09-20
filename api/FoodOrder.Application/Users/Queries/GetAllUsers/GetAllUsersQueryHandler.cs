@@ -24,7 +24,7 @@ public class GetAllUsersQueryHandler : IRequestHandler<GetAllUsersQuery, ErrorOr
             u.FirstName,
             u.LastName,
             u.Email,
-            u.Role)).ToList();
+            u.Role) { AvatarUrl = u.AvatarUrl }).ToList();
     }
 }
 

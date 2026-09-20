@@ -45,7 +45,7 @@ public class GetOrdersBySellerQueryHandler : IRequestHandler<GetOrdersBySellerQu
                 i.MenuItemId,
                 i.Name,
                 i.Price,
-                i.Quantity)).ToList())).ToList();
+                i.Quantity) { ImageUrl = i.ImageUrl }).ToList())).ToList();
     }
 }
 

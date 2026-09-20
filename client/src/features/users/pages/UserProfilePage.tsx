@@ -42,7 +42,8 @@ function UserProfileContent() {
             firstName: authUser?.firstName?.split(' ')[0] || "User",
             lastName: authUser?.firstName?.split(' ').slice(1).join(' ') || "",
             email: authUser?.email || "N/A",
-            role: authUser?.role || "Customer"
+            role: authUser?.role || "Customer",
+            avatarUrl: ""
          });
          setError("Could not load all profile details. Some features might be unavailable.");
       } finally {
@@ -107,8 +108,16 @@ function UserProfileContent() {
         
         {/* Header */}
         <div className="flex items-center gap-4 mb-10 animate-fade-in-down">
-          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-500 to-orange-500 text-white flex items-center justify-center shadow-lg">
-             <UserIcon className="w-8 h-8" />
+          <div className="w-16 h-16 rounded-2xl overflow-hidden bg-gradient-to-br from-red-500 to-orange-500 text-white flex items-center justify-center shadow-lg">
+            {profile?.avatarUrl ? (
+              <img
+                src={profile.avatarUrl}
+                alt={`${profile.firstName} ${profile.lastName}`}
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <UserIcon className="w-8 h-8" />
+            )}
           </div>
           <div>
             <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">

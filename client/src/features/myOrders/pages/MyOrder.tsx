@@ -122,7 +122,7 @@ function MyOrdersContent() {
                 style={{ animationDelay: `${0.1 + (idx * 0.05)}s` }}
               >
                 {/* Decorative highlight on active orders */}
-                {(order.status === "Pending" || order.status === "Placed" || order.status === "Preparing" || order.status === "On_the_way" || order.status === "Ready") && (
+                {order.status !== "DELIVERED" && (
                    <div className="absolute top-0 right-0 w-48 h-48 bg-red-500/5 dark:bg-red-500/10 rounded-full blur-3xl -mr-24 -mt-24 pointer-events-none group-hover:bg-red-500/10 dark:group-hover:bg-red-500/20 transition-colors"></div>
                 )}
 
@@ -137,9 +137,9 @@ function MyOrdersContent() {
                           order.status
                         )}`}
                       >
-                         {order.status === "Delivered" && <CheckCircle className="w-3 h-3" />}
-                         {(order.status === "Pending" || order.status === "Placed") && <Clock className="w-3 h-3" />}
-                         {(order.status !== "Delivered" && order.status !== "Pending" && order.status !== "Placed") && <Package className="w-3 h-3" />}
+                         {order.status === "DELIVERED" && <CheckCircle className="w-3 h-3" />}
+                         {order.status === "PLACED" && <Clock className="w-3 h-3" />}
+                         {(order.status !== "DELIVERED" && order.status !== "PLACED") && <Package className="w-3 h-3" />}
                         {order.status.replace(/_/g, " ")}
                       </span>
                     </div>
@@ -159,10 +159,18 @@ function MyOrdersContent() {
                   <h4 className="font-semibold text-slate-900 dark:text-white mb-4 text-sm uppercase tracking-wider">Order Items</h4>
                   <ul className="text-sm font-medium space-y-3">
                     {order.items.map((item) => (
-                      <li key={item.id} className="flex justify-between items-start group/item">
-                        <span className="text-slate-700 dark:text-slate-300">
-                          <span className="font-bold text-slate-900 dark:text-white inline-block w-6">{item.quantity}x</span> 
-                          {item.name}
+                      <li key={item.id} className="flex justify-between items-center group/item">
+                        <span className="flex items-center gap-3 text-slate-700 dark:text-slate-300">
+                          <img
+                            src={item.imageUrl}
+                            alt={item.name}
+                            loading="lazy"
+                            className="w-12 h-12 rounded-lg object-cover border border-slate-200 dark:border-slate-700"
+                          />
+                          <span>
+                            <span className="font-bold text-slate-900 dark:text-white inline-block w-6">{item.quantity}x</span>
+                            {item.name}
+                          </span>
                         </span>
                         <span className="font-bold text-slate-900 dark:text-white ml-4">
                           ${(item.price * item.quantity).toFixed(2)}
